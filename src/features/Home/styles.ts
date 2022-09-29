@@ -23,6 +23,9 @@ const HeaderStyles = styled.div`
 `
 
 const HomeCardItemStyles = styled.div`
+  .ant-card {
+    margin-bottom: 0.62rem;
+  }
   .ant-card-body {
     padding: 1.25rem;
     display: flex;

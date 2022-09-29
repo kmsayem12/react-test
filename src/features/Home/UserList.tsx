@@ -5,7 +5,7 @@ import { HomeCardItemStyles } from './styles'
 type UserListProps = { list: IUser }
 
 const UserList = ({ list }: UserListProps) => {
-  const CardList = list.map((item: IUser) => (
+  const CardList = list?.map((item: IUser) => (
     <Col span={8} key={Math.random()}>
       <Card size="small">
         <h3>{item.name}</h3>
