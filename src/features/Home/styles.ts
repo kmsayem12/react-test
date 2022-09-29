@@ -1,6 +1,10 @@
 import styled from 'styled-components'
 
-const HomeStyles = styled.div``
+const HomeStyles = styled.div`
+  .content {
+    padding: 20px;
+  }
+`
 
 const HeaderStyles = styled.div`
   .header {
@@ -18,4 +22,16 @@ const HeaderStyles = styled.div`
   }
 `
 
-export { HomeStyles, HeaderStyles }
+const HomeCardItemStyles = styled.div`
+  .ant-card-body {
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    h3 {
+      margin: 1rem 0;
+    }
+  }
+`
+
+export { HomeStyles, HeaderStyles, HomeCardItemStyles }
