@@ -25,14 +25,10 @@ a:hover {
 }
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-  background-color: #f6be00;
+  margin: 0 auto;
+  background-color: #eff2f5;
+  font-size: 16px;
 }
-
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
@@ -68,4 +64,8 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+.ant-layout {
+  background: transparent;
 }
