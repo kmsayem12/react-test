@@ -54,3 +54,9 @@ button:focus-visible {
 .ant-layout {
   background: transparent;
 }
+.loader {
+  height: 80vh;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}

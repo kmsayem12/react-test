@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react'
+import { Spin } from 'antd'
 import Header from './Header'
 import UserList from './UserList'
 import UserAdd from './UserAdd'
+import { Loading } from '@/components/Loading'
 import { getUsers } from './api'
 import { IUser } from '@/types'
 import { HomeStyles } from './styles'
@@ -10,10 +12,12 @@ const Home: React.FC = () => {
   const [hasModal, setHasModal] = useState(false)
   const [users, setUsers] = useState<IUser[]>([])
   const [search, setSearch] = useState<string>('')
+  const [loader, setLoader] = useState<boolean>(true)
 
   useEffect(() => {
     getUsers().then(data => {
       setUsers(data)
+      setLoader(false)
     })
   }, [])
 
@@ -40,6 +44,7 @@ const Home: React.FC = () => {
     <HomeStyles>
       <Header toggleModal={toggleModal} searchChange={searchChange} />
       <div className="content">
+        <Loading loader={loader} />
         <UserList list={getlists()} />
       </div>
       <UserAdd hasModal={hasModal} toggleModal={toggleModal} addNewUser={addNewUser} />
