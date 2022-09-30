@@ -1,4 +1,5 @@
 import { Row, Col, Card } from 'antd'
+import { formatPhoneNumber } from '@/lib/helpers/'
 import { IUser } from '@/types'
 import { HomeCardItemStyles } from './styles'
 
@@ -9,8 +10,8 @@ const UserList = ({ list }: UserListProps) => {
     <Col span={8} key={Math.random()}>
       <Card size="small">
         <h3>{item.name}</h3>
-        <p>{item.email}</p>
-        <p>{item.phone}</p>
+        <p>Email: {item.email}</p>
+        <p>Phone: {formatPhoneNumber(item.phone)}</p>
       </Card>
     </Col>
   ))

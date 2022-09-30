@@ -3,8 +3,11 @@ import { Row, Col, Input, Button } from 'antd'
 import { HeaderStyles } from './styles'
 
 const { Search } = Input
+type Props = {
+  toggleModal: () => void
+}
 
-const Header: React.FC = () => {
+const Header: React.FC<Props> = ({ toggleModal }) => {
   return (
     <HeaderStyles>
       <Row>
@@ -13,7 +16,7 @@ const Header: React.FC = () => {
             <h2>Yellow Page</h2>
             <section className="search">
               <Search placeholder="input search text" />
-              <Button type="primary" className="add-btn">
+              <Button type="primary" className="add-btn" onClick={toggleModal}>
                 Add
               </Button>
             </section>
