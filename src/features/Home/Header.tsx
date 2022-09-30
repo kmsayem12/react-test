@@ -5,9 +5,10 @@ import { HeaderStyles } from './styles'
 const { Search } = Input
 type Props = {
   toggleModal: () => void
+  searchChange: (event: any) => void
 }
 
-const Header: React.FC<Props> = ({ toggleModal }) => {
+const Header: React.FC<Props> = ({ toggleModal, searchChange }) => {
   return (
     <HeaderStyles>
       <Row>
@@ -15,7 +16,7 @@ const Header: React.FC<Props> = ({ toggleModal }) => {
           <div className="header">
             <h2>Yellow Page</h2>
             <section className="search">
-              <Search placeholder="input search text" />
+              <Search placeholder="input search text" onChange={searchChange} allowClear />
               <Button type="primary" className="add-btn" onClick={toggleModal}>
                 Add
               </Button>

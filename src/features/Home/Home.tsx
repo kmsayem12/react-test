@@ -9,6 +9,7 @@ import { HomeStyles } from './styles'
 const Home: React.FC = () => {
   const [hasModal, setHasModal] = useState(false)
   const [users, setUsers] = useState<IUser[]>([])
+  const [search, setSearch] = useState<string>('')
 
   useEffect(() => {
     getUsers().then(data => {
@@ -24,11 +25,22 @@ const Home: React.FC = () => {
     toggleModal()
   }
 
+  const searchChange = (event: any) => {
+    setSearch(event.target.value)
+  }
+
+  const getlists = (): IUser[] => {
+    if (search) {
+      return users.filter(user => user.name.toLowerCase().includes(search.toLowerCase()))
+    }
+    return users
+  }
+
   return (
     <HomeStyles>
-      <Header toggleModal={toggleModal} />
+      <Header toggleModal={toggleModal} searchChange={searchChange} />
       <div className="content">
-        <UserList list={users} />
+        <UserList list={getlists()} />
       </div>
       <UserAdd hasModal={hasModal} toggleModal={toggleModal} addNewUser={addNewUser} />
     </HomeStyles>
